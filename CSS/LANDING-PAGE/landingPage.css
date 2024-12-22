@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Days+One&display=swap");
+
+:root {
+  --primary: #e8c01d;
+  --secondary: #344b9c;
+  --tertiary: #b6a42b;
+  --background: #f1f3f7;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+    url(../../ASSETS/LANDING-PAGE/background.png);
+  background-size: cover;
+  font-family: "Days One", sans-serif;
+}
+
+nav {
+  width: 100%;
+  height: 100px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo {
+  font-size: 2em;
+  letter-spacing: 2px;
+  color: var(--primary);
+}
+
+.logo span {
+  color: var(--secondary);
+}
+
+.register a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  background: var(--secondary);
+}
+
+.register a:hover {
+  border: 1px solid var(--primary);
+  background: transparent;
+}
+
+.h-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.h-text span {
+  letter-spacing: 5px;
+}
+
+.h-text h1 {
+  font-size: 3.5em;
+}
+
+.h-text a {
+  text-decoration: none;
+  background: var(--primary);
+  padding: 10px 20px;
+  color: #fff;
+  letter-spacing: 5px;
+  transition: 0.4s;
+}
+
+.h-text a:hover {
+  border: 1px solid var(--primary);
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  nav {
+    height: auto;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.5em;
+  }
+
+  .register {
+    margin-top: 1rem;
+  }
+
+  .register a {
+    font-size: 16px;
+  }
+
+  .h-text h1 {
+    font-size: 2.5em;
+  }
+}

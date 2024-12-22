@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* General Styles */
+body, html {
+  margin: 0;
+  font-family: 'Poppins', serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #365e32;
+  color: white;
+  padding: 1rem 0;
+}
+
+/* Header Container */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Pisahkan elemen secara horizontal */
+  align-items: center;
+  padding: 0 1rem; /* Tambahkan jarak padding untuk rapi */
+}
+
+.site-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Memastikan navbar item berada di tengah */
+  width: 100%;
+}
+
+/* Navbar List */
+.navbar-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 2rem; /* Memberikan jarak antar item */
+  justify-content: center; /* Memastikan list berada di tengah */
+}
+
+/* Navbar Link */
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #ffdd00;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 4px;
+  padding: 5px;
+  margin-left: auto;
+}
+
+.search-input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  flex: 1; /* Buat input memanjang sesuai ruang yang tersedia */
+}
+
+.search-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #81a263;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text .highlight {
+  color: #ffdd00;
+  font-weight: bold;
+}
+
+/* Section: Kantin Favorit */
+.kantin-favorit {
+  background-color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.kantin-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.kantin-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.kantin-card:hover {
+  transform: scale(1.05);
+}
+
+.kantin-image {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+}
+
+.kantin-info {
+  padding: 1rem;
+}
+
+.kantin-name {
+  font-size: 1.2rem;
+  color: #ffdd00;
+  margin: 0;
+}
+
+.kantin-rating {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.kantin-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Bottom Navbar Styles */
+.bottom-navbar {
+  background-color: #81a263; /* Warna latar belakang */
+  padding: 2rem 0;
+  border-top: 1px solid #fff; /* Garis pemisah atas */
+}
+
+.bottom-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.bottom-navbar-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.bottom-navbar-column h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.bottom-navbar-column p {
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.bottom-navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bottom-navbar-links li {
+  margin-bottom: 0.5rem;
+}
+
+.bottom-navbar-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.bottom-navbar-links a:hover {
+  color: #ffdd00;
+}
+
+.newsletter {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.newsletter button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #fd9b63;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+  background-color: #2c4d29;
+}
+
+/* Responsive Adjustment */
+@media (max-width: 768px) {
+  .bottom-navbar-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .newsletter {
+    flex-direction: column;
+  }
+}
+
+.footer {
+  background-color: #365e32;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-container {
+    text-align: center;
+  }
+
+  .kantin-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

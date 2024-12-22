@@ -1,0 +1,43 @@
+2024-12-22 07:00:44 - Received request - Array
+(
+    [username] => aaa
+    [new_username] => ccc
+    [email] => TES1@gmail.com
+)
+
+2024-12-22 07:00:59 - Received request - Array
+(
+    [username] => bbb
+    [new_username] => aaa
+    [email] => TES1@gmail.com
+    [Nama_Warung] => Ali
+)
+
+2024-12-22 07:00:59 - File upload details - Array
+(
+    [name] => Bukti Kuliah Umum.png
+    [full_path] => Bukti Kuliah Umum.png
+    [type] => image/png
+    [tmp_name] => C:\xampp\tmp\php6F54.tmp
+    [error] => 0
+    [size] => 794358
+)
+
+2024-12-22 07:03:48 - Received request - Array
+(
+    [username] => aaa
+    [new_username] => aaa
+    [email] => TES1@gmail.com
+    [Nama_Warung] => Ali
+)
+
+2024-12-22 07:03:48 - File upload details - Array
+(
+    [name] => 23523003 (Tambah data).png
+    [full_path] => 23523003 (Tambah data).png
+    [type] => image/png
+    [tmp_name] => C:\xampp\tmp\php301.tmp
+    [error] => 0
+    [size] => 199486
+)
+

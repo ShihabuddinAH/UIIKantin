@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  font-size: 14px;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section */
+.left-section {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.uii-kantin-image {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.company-logo {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Right Section */
+.right-section {
+  width: 60%;
+  padding: 40px;
+}
+
+/* Wrapper for Toggle */
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Toggle Container */
+.toggle {
+  display: flex;
+  background-color: #ebe5e5; /* Light gray background */
+  border-radius: 25px; /* Makes the container oval */
+  padding: 5px;
+  width: 200px; /* Width of toggle container */
+  height: 40px; /* Height of toggle container */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Toggle Option Styles */
+.toggle-option {
+  flex: 1; /* Membuat kedua opsi berbagi ruang secara merata */
+  display: flex; /* Gunakan flexbox untuk pusat vertikal dan horizontal */
+  justify-content: center; /* Pusatkan teks secara horizontal */
+  align-items: center; /* Pusatkan teks secara vertikal */
+  text-align: center;
+  font-size: 14px;
+  color: #6c6c6c; /* Warna teks default (non-aktif) */
+  border-radius: 20px; /* Menyamakan radius dengan container */
+  transition: all 0.3s ease; /* Animasi untuk perpindahan status aktif */
+}
+
+.toggle-option.active {
+  background-color: #4a69bd; /* Warna biru untuk opsi aktif */
+  color: #ffffff; /* Warna putih untuk teks pada opsi aktif */
+}
+
+/* Form Container */
+.form-container {
+  background-color: #f0f0f0; /* Warna abu-abu */
+  padding: 30px; /* Ruang di sekitar elemen */
+  border-radius: 10px; /* Membuat sudut melengkung */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan bayangan */
+}
+
+.form-container h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.form-container h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background:#d0e4f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.google-button:hover {
+  background-color: #f0f0f0;
+}
+
+.google-icon {
+  width: 20px;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 14px;
+}
+
+#login-form label {
+  font-size: 14px;
+  color: #555;
+}
+
+#login-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#login-form .forgot-password {
+  text-align: right;
+  font-size: 12px;
+  color: #1a73e8;
+}
+
+.sign-in-button {
+  background: #1a73e8;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sign-in-button:hover {
+  background-color: #145bb5;
+}
+
+.no-account {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.no-account a {
+  color: #1a73e8;
+  text-decoration: none;
+}

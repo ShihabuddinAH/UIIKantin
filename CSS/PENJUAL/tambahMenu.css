@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #365e32;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    border-bottom: 2px solid #fff; 
+    padding-bottom: 10px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.content h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.content h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.content p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.photo-upload {
+    margin-bottom: 20px;
+}
+
+.photo-placeholder {
+    width: 150px;
+    height: 200px;
+    background-color: #fff;
+    color: #3b5998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-placeholder:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.photo-placeholder span {
+    font-size: 24px;
+}
+
+.photo-placeholder p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: auto;
+    padding: 8px 16px;
+    background-color: #fd9b63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background-color: #bdc3c7;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

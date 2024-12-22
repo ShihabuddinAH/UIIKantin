@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.signup-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+  width: 50%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.left-section img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.uii-kantin-logo {
+  width: 300px; /* Ubah sesuai kebutuhan */
+}
+
+.tap-eat-logo {
+  width: 50px; /* Ubah sesuai kebutuhan */
+}
+
+.right-section {
+  padding: 30px;
+  border-radius: 10px;
+  
+}
+
+.signup-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  padding: 30px; /* Ruang di sekitar elemen */
+  border-radius: 10px; /* Membuat sudut melengkung */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan bayangan */
+}
+
+.signup-form-container h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.signup-form-container h2 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.signup-form-container .already-account {
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.signup-form-container .already-account a {
+  color: #4a69bd;
+  text-decoration: none;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signup-form label {
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.signup-form .two-column {
+  display: flex;
+  gap: 15px;
+}
+
+.signup-form .two-column div {
+  flex: 1;
+}
+
+.signup-button {
+  background: #1a73e8;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.signup-button:hover {
+  background-color: #145bb5;
+}
