@@ -50,7 +50,7 @@ if (isset($_POST['delete_user'])) {
     <div class="container">
         <!-- Main Content -->
         <main class="content">
-            <h1>User Management</h1>
+            <h1>Manajemen Pengguna</h1>
             <!-- Statistics Section -->
             <section class="stats">
                 <div class="card">
@@ -74,7 +74,7 @@ if (isset($_POST['delete_user'])) {
                 </div>
                 <div class="card">
                     <h3>10</h3>
-                    <p>Total Canceled</p>
+                    <p>Total Dibatalkan</p>
                 </div>
                 <div class="card">
                     <?php
@@ -285,7 +285,7 @@ if (isset($_POST['delete_user'])) {
                 </table>
             </section>
             <a href="logout.php">
-                <button style="background-color: red; color: white">LOGOUT</button>
+                <button style="background-color: red; color: white">LOG OUT</button>
             </a>
         </main>
     </div>

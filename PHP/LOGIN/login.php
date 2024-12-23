@@ -34,13 +34,13 @@ if (isset($_SESSION['username'])) {
       
       <!-- Form Container -->
       <div class="form-container">
-        <h1>Welcome to UIIKantin</h1>
-        <h2>Sign in</h2>
+        <h1>Selamat Datang di UIIKantin</h1>
+        <h2>Masuk</h2>
         
         <!-- Google Sign-in Button -->
         <button class="google-button">
           <img src="../../ASSETS/LOGIN/google.webp" alt="Google Logo" class="google-icon">
-          Sign in with Google
+          Masuk dengan Google
         </button>
 
         <!-- Login Form -->
@@ -54,13 +54,13 @@ if (isset($_SESSION['username'])) {
           <!-- Hidden input to store toggle state -->
           <input type="hidden" id="role" name="role" value="buyer">
 
-          <a href="#" class="forgot-password">Forgot Password</a>
-          <button type="submit" class="sign-in-button">Sign in</button>
+          <a href="#" class="forgot-password">Lupa</a>
+          <button type="submit" class="sign-in-button">Masuk</button>
         </form>
 
         <p class="no-account">
-          No Account? 
-          <a id="signup-link" href="../PEMBELI/signupPembeli.php">Sign up</a>
+          Tidak Punya Akun? 
+          <a id="signup-link" href="../PEMBELI/signupPembeli.php">Daftar</a>
         </p>
       </div>
     </div>
