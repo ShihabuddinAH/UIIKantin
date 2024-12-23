@@ -20,7 +20,7 @@ $result = $conn->query("SELECT * FROM kantin");
           <nav class="navbar">
             <ul class="navbar-list">
               <li><a href="kantin.php" class="navbar-link">Kantin</a></li>
-              <li><a href="status.html" class="navbar-link">Riwayat Pesanan</a></li>
+              <li><a href="riwayatPesanan.php" class="navbar-link">Riwayat Pesanan</a></li>
               <li><a href="profile.php" class="navbar-link">Profile</a></li>
             </ul>
             <div class="search-box">

@@ -67,7 +67,7 @@ while ($row_menu = $result_menu->fetch_assoc()) {
         <h4>Kantin <?= htmlspecialchars($Nama_Warung) ?></h4>
         <ul>
             <li><a href="dashboardPenjual.php" class="button">Dashboard</a></li>
-            <li><a href="#" class="button">Order List</a></li>
+            <li><a href="list.php" class="button">Order List</a></li>
             <li><a href="#">Customer</a></li>
             <li><a href="#" class="button">Reviews</a></li>
             <li><a class="active" href="#">Menu</a></li>

@@ -45,7 +45,7 @@ body {
   transition: background-color 0.3s;
 }
 .sidebar a.logout {
-  background-color: rgb(179, 20, 20);
+  color: red;
 }
 
 .sidebar a.logout:hover {

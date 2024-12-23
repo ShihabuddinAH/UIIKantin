@@ -120,3 +120,34 @@ function updateOrderSummary() {
   const total = subtotal + adminFee;
   document.getElementById("total").textContent = `Rp ${numberFormat(total)}`;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const checkoutButton = document.querySelector(".checkout-button");
+
+  checkoutButton.addEventListener("click", function () {
+    const confirmation = confirm(
+      "Apakah Anda yakin ingin melanjutkan checkout?"
+    );
+    if (!confirmation) return;
+
+    // Kirim permintaan ke server untuk memproses checkout
+    fetch("../../PHP/PEMBELI/checkout.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "success") {
+          alert(data.message);
+          location.reload(); // Refresh halaman setelah berhasil checkout
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Terjadi kesalahan:", error);
+      });
+  });
+});

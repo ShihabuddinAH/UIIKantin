@@ -26,12 +26,15 @@ $query = "SELECT keranjang.ID_Keranjang,
                  keranjang.Subtotal_Harga AS Total
           FROM keranjang 
           JOIN menu ON keranjang.ID_Menu = menu.ID_Menu 
-          WHERE keranjang.ID_Pengguna = ?";
+          WHERE keranjang.ID_Pengguna = ? AND keranjang.status = 'belum checkout'";
+
 
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $ID_Pengguna);
 $stmt->execute();
 $result = $stmt->get_result();
+
+$grandTotal = 0;
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +64,6 @@ $result = $stmt->get_result();
                 <tbody>
                     <?php 
                     // Di dalam loop while untuk menampilkan items:
-                    $grandTotal = 0;
                     while ($row = $result->fetch_assoc()): 
                         // Hitung total per item
                         $itemTotal = $row['Harga_Menu'] * $row['Jumlah_Pesanan'];

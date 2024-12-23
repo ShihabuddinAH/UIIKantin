@@ -46,7 +46,7 @@ body {
 }
 
 .sidebar a.logout {
-  background-color: rgb(179, 20, 20);
+  color: red;
 }
 
 .sidebar a.logout:hover {
