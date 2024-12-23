@@ -29,7 +29,6 @@ if (isset($_SESSION['username'])) {
         <div class="toggle">
           <div id="buyer-toggle" class="toggle-option active">Pembeli</div>
           <div id="seller-toggle" class="toggle-option">Penjual</div>
-          <div id="admin-toggle" class="toggle-option active">Admin</div>
         </div>
       </div>
       
