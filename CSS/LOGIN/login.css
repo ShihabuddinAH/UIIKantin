@@ -14,7 +14,6 @@ body {
 
 .container {
   display: flex;
-  flex-wrap: wrap; /* Membuat elemen child otomatis berpindah ke baris baru */
   max-width: 1200px;
   width: 100%;
   background: #fff;
@@ -64,38 +63,39 @@ body {
 /* Toggle Container */
 .toggle {
   display: flex;
-  background-color: #ebe5e5;
-  border-radius: 25px;
+  background-color: #ebe5e5; /* Light gray background */
+  border-radius: 25px; /* Makes the container oval */
   padding: 5px;
-  width: 200px;
-  height: 40px;
+  width: 200px; /* Width of toggle container */
+  height: 40px; /* Height of toggle container */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
+/* Toggle Option Styles */
 .toggle-option {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1; /* Membuat kedua opsi berbagi ruang secara merata */
+  display: flex; /* Gunakan flexbox untuk pusat vertikal dan horizontal */
+  justify-content: center; /* Pusatkan teks secara horizontal */
+  align-items: center; /* Pusatkan teks secara vertikal */
   text-align: center;
   font-size: 14px;
-  color: #6c6c6c;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  color: #6c6c6c; /* Warna teks default (non-aktif) */
+  border-radius: 20px; /* Menyamakan radius dengan container */
+  transition: all 0.3s ease; /* Animasi untuk perpindahan status aktif */
 }
 
 .toggle-option.active {
-  background-color: #4a69bd;
-  color: #ffffff;
+  background-color: #4a69bd; /* Warna biru untuk opsi aktif */
+  color: #ffffff; /* Warna putih untuk teks pada opsi aktif */
 }
 
 /* Form Container */
 .form-container {
-  background-color: #f0f0f0;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0; /* Warna abu-abu */
+  padding: 30px; /* Ruang di sekitar elemen */
+  border-radius: 10px; /* Membuat sudut melengkung */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan bayangan */
 }
 
 .form-container h1 {
@@ -114,7 +114,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #d0e4f0;
+  background:#d0e4f0;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px 20px;
@@ -178,90 +178,4 @@ body {
 .no-account a {
   color: #1a73e8;
   text-decoration: none;
-}
-
-/* MEDIA QUERIES */
-
-/* Tablet Landscape (max-width: 1024px) */
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .left-section {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .right-section {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .form-container {
-    padding: 20px;
-  }
-}
-
-/* Tablet Portrait (max-width: 768px) */
-@media (max-width: 768px) {
-  .form-container h1 {
-    font-size: 20px;
-  }
-
-  .form-container h2 {
-    font-size: 18px;
-  }
-
-  #login-form input {
-    padding: 8px;
-  }
-
-  .google-button {
-    padding: 8px 15px;
-  }
-
-  .sign-in-button {
-    font-size: 12px;
-  }
-}
-
-/* Mobile Devices (max-width: 480px) */
-@media (max-width: 480px) {
-  .uii-kantin-image {
-    width: 100%;
-    border-radius: 5px;
-  }
-
-  .company-logo {
-    width: 40px;
-  }
-
-  .form-container h1 {
-    font-size: 18px;
-  }
-
-  .form-container h2 {
-    font-size: 16px;
-  }
-
-  #login-form label {
-    font-size: 12px;
-  }
-
-  #login-form input {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  .sign-in-button {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  .google-button {
-    font-size: 12px;
-    padding: 8px;
-  }
 }
