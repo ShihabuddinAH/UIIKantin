@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/PENJUAL/list.css">
-    <title>Order List</title>
+    <title>Kantin <?= htmlspecialchars($Nama_Warung) ?></title>
 </head>
 <body>
-    <div class="dashboard-container">
+<div class="dashboard-container">
         <div class="sidebar">
-            <h4>Kantin Makmur</h4>
+            <h4>Kantin <?= htmlspecialchars($Nama_Warung) ?></h4>
             <ul>
                 <li><a href="dashboardPenjual.php" class="button">Dashboard</a></li>
                 <li><a class="active" href="#">Order List</a></li>
