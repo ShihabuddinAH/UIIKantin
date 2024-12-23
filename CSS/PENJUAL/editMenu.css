@@ -116,8 +116,7 @@ body {
   gap: 10px;
 }
 
-.buttons .discard,
-.buttons .save,
+.buttons .hapus,
 .buttons .tambahMenu {
   padding: 10px 20px;
   border: none;
@@ -125,14 +124,8 @@ body {
   cursor: pointer;
 }
 
-.buttons .discard {
-  background-color: #6c757d;
-  color: white;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.buttons .save {
-  background-color: #fd9b63;
+.buttons .hapus {
+  background-color: #ff0000;
   color: white;
   transition: transform 0.2s, box-shadow 0.2s;
 }

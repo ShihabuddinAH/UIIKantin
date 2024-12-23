@@ -1,17 +1,20 @@
 <?php
 session_start();
-include '../connect.php'; // Pastikan file connect.php ada dan berisi kode untuk koneksi ke database
+include '../connect.php'; // Koneksi ke database
 
 if (!isset($_SESSION['username'])) {
-    // Jika username tidak ada dalam sesi, arahkan ke login
     header('Location: ../LOGIN/login.php');
     exit();
 }
 
 $id = $_GET['ID_Menu'];
 
-$sql = "SELECT * FROM menu WHERE ID_Menu = $id";
-$result = $conn->query($sql);
+// Ambil data menu berdasarkan ID
+$sql = "SELECT * FROM menu WHERE ID_Menu = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $menu = $result->fetch_assoc();
@@ -19,50 +22,38 @@ if ($result->num_rows > 0) {
     die("Menu tidak ditemukan.");
 }
 
-$menu = $result->fetch_assoc();
-
-$username = $_SESSION['username'];
-
-// Mengambil ID_Warung dari database
-$sql = "SELECT ID_Warung FROM kantin WHERE ID_Pengguna = (SELECT ID_Pengguna FROM user WHERE username = ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $ID_Warung = $row['ID_Warung'];
-} else {
-    echo "ID_Warung tidak ditemukan.";
-    exit();
-}
-$stmt->close();
+$gambarAwal = $menu['Gambar_Menu'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama_menu = $_POST['Nama_Menu'];
     $deskripsi_menu = $_POST['Deskripsi_Menu'];
     $harga_menu = $_POST['Harga_Menu'];
-    $gambar_menu = $_FILES['Gambar_Menu']['name'];
+    $gambar_menu = $_FILES['gambar_menu']['name'];
+
+    // Folder tujuan upload
     $target_dir = "../../ASSETS/MENU/";
     $target_file = $target_dir . basename($gambar_menu);
 
-    // Pindahkan file gambar ke folder target
-    if (move_uploaded_file($_FILES['gambar_menu']['tmp_name'], $target_file)) {
-        // Simpan data ke tabel menu
-        $sql = "INSERT INTO menu (ID_Warung, Nama_Menu, Deskripsi_Menu, Harga_Menu, Gambar_Menu) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("issss", $ID_Warung, $nama_menu, $deskripsi_menu, $harga_menu, $gambar_menu);
-        if ($stmt->execute()) {
-            echo "Menu berhasil ditambahkan.";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-        $stmt->close();
+    // Jika ada file baru diunggah, gunakan file baru, jika tidak, gunakan file lama
+    if (!empty($gambar_menu) && move_uploaded_file($_FILES['gambar_menu']['tmp_name'], $target_file)) {
+        $gambarFinal = $gambar_menu;
     } else {
-        echo "Error uploading file.";
+        $gambarFinal = $gambarAwal;
     }
-    $conn->close();
+
+    // Update data menu
+    $updateMenu = "UPDATE menu SET Nama_Menu = ?, Deskripsi_Menu = ?, Harga_Menu = ?, Gambar_Menu = ? WHERE ID_Menu = ?";
+    $stmt = $conn->prepare($updateMenu);
+    $stmt->bind_param("ssdsi", $nama_menu, $deskripsi_menu, $harga_menu, $gambarFinal, $id);
+
+    if ($stmt->execute()) {
+        echo "Menu berhasil diperbarui.";
+        header('Location: menuList.php'); // Redirect ke halaman daftar menu (ubah sesuai kebutuhan)
+        exit();
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+    $stmt->close();
 }
 ?>
 
@@ -81,32 +72,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h2>Info item</h2>
             <h3>Edit foto</h3>
             <p>Foto yang bagus akan meningkatkan pembelian</p>
-            <p><? echo $sql ?></p>
             <div class="photo-upload">
                 <div class="photo-placeholder">
-                    <span>+</span>
-                    <p>Tambahkan Foto</p>
+                    <img src="../../ASSETS/MENU/<?= htmlspecialchars($menu['Gambar_Menu']) ?>" alt="<?= htmlspecialchars($menu['Nama_Menu']) ?>">
                 </div>
             </div>
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Nama Menu</label>
-                    <input type="text" name="Nama_Menu" value="<?= $menu['Nama_Menu'] ?>" required>
+                    <input type="text" name="Nama_Menu" value="<?= htmlspecialchars($menu['Nama_Menu']) ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Deskripsi Menu</label>
-                    <input type="text" name="Deskripsi_Menu" value="<?= $menu['Deskripsi_Menu'] ?>" required>
+                    <input type="text" name="Deskripsi_Menu" value="<?= htmlspecialchars($menu['Deskripsi_Menu']) ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Harga Menu</label>
-                    <input type="number" name="harga_menu" value="<?= $menu['harga_menu'] ?>" required>
+                    <input type="number" name="Harga_Menu" value="<?= htmlspecialchars($menu['Harga_Menu']) ?>" required>
                 </div>
-                <!-- Tambahkan input file ke dalam form -->
-                <input type="file" name="gambar_menu" id="gambar_menu" style="display: none;" required>
+                <input type="file" name="gambar_menu" id="gambar_menu" style="display: none;">
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
-    <!-- <script src="../../SCRIPT/PENJUAL/tambahMenu.js"></script> -->
+    <script src="../../SCRIPT/PENJUAL/tambahMenu.js"></script>
 </body>
 </html>

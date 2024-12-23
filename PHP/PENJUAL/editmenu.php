@@ -84,14 +84,14 @@ while ($row_menu = $result_menu->fetch_assoc()) {
                     <h5><?= htmlspecialchars($item['Nama_Menu']) ?></h5>
                     <p>Rp<?= number_format($item['Harga_Menu'], 0, ',', '.') ?></p>
                     <a href="editDetailMenu.php?ID_Menu=<?= $item['ID_Menu'] ?>">
-                        <button>Edit dish</button>
+                        <button>Edit</button>
+                        <button>Hapus</button>
                     </a>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
         <div class="buttons">
-            <button class="discard">Discard Changes</button>
-            <button class="save">Save Changes</button>
+            <button class="hapus">Hapus</button>
             <button class="tambahMenu">+</button>
         </div>
     </div>
