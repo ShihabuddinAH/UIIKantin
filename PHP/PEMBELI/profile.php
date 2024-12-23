@@ -65,7 +65,7 @@ $foto_profile = ($user['foto_profile']);
             <div class="profile-header">
                 <div class="profile-picture">
                     <!-- Gambar diambil dari database -->
-                    <img src="/PABW/PROYEK/EXPO/ASSETS/PROFILE/<?php echo htmlspecialchars($foto_profile); ?>" alt="Profile Picture">
+                    <img src="../../ASSETS/PROFILE/<?php echo htmlspecialchars($foto_profile); ?>" alt="Profile Picture">
                 </div>
                 <div class="profile-info">
                     <!-- Data diambil dari database -->
