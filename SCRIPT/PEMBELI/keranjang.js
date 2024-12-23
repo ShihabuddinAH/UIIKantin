@@ -1,73 +1,122 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const cartItemsContainer = document.getElementById("cart-items");
-  const subtotalElement = document.getElementById("subtotal");
-  const totalElement = document.getElementById("total");
+// Fungsi untuk melakukan update
+function updateQuantity(button) {
+  // Mendapatkan data dari button yang diklik
+  const cartId = button.dataset.cartid;
+  const action = button.dataset.action;
 
-  const adminFees = 2000; // Biaya admin tetap
+  console.log(`Updating cart ID: ${cartId} with action: ${action}`);
 
-  // Fetch data keranjang dari server
-  fetch("http://localhost:3000/api/cart")
+  fetch("update_cart.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `cart_id=${cartId}&action=${action}`,
+  })
     .then((response) => response.json())
     .then((data) => {
-      if (data.length > 0) {
-        let subtotal = 0;
+      if (data.success) {
+        // Update tampilan jumlah
+        const quantitySpan = document.getElementById(`quantity-${cartId}`);
+        const totalSpan = document.getElementById(`total-${cartId}`);
 
-        data.forEach((item) => {
-          // Hitung subtotal
-          subtotal += item.price * item.quantity;
+        if (quantitySpan) {
+          let currentQty = parseInt(quantitySpan.textContent);
+          if (action === "increase") {
+            currentQty++;
+          } else if (action === "decrease" && currentQty > 1) {
+            currentQty--;
+          }
+          quantitySpan.textContent = currentQty;
 
-          // Buat elemen untuk item pesanan
-          const cartItem = document.createElement("div");
-          cartItem.className = "cart-item";
-          cartItem.innerHTML = `
-                <img src="${item.image_url || "assets/default.png"}" alt="${
-            item.name
-          }" class="item-img">
-                <div class="item-details">
-                  <h3 class="item-name">${item.name}</h3>
-                  <p class="item-date">${item.date || "-"}</p>
-                  <div class="item-quantity">
-                    <button class="quantity-button" onclick="decreaseQuantity(${
-                      item.id
-                    })">-</button>
-                    <span>${item.quantity}</span>
-                    <button class="quantity-button" onclick="increaseQuantity(${
-                      item.id
-                    })">+</button>
-                  </div>
-                </div>
-                <span class="item-price">Rp${(
-                  item.price * item.quantity
-                ).toLocaleString()}</span>
-                <button class="delete-button" onclick="removeItem(${
-                  item.id
-                })">🗑️</button>
-              `;
-          cartItemsContainer.appendChild(cartItem);
-        });
-
-        // Update subtotal dan total
-        subtotalElement.innerText = `Rp${subtotal.toLocaleString()}`;
-        totalElement.innerText = `Rp${(subtotal + adminFees).toLocaleString()}`;
+          // Update total if provided in response
+          if (data.newTotal) {
+            totalSpan.textContent = `Rp ${numberFormat(data.newTotal)}`;
+            updateOrderSummary();
+          }
+        }
       } else {
-        cartItemsContainer.innerHTML = "<p>Keranjang kosong.</p>";
+        alert(data.message || "Gagal mengupdate jumlah pesanan");
       }
     })
     .catch((error) => {
-      console.error("Error fetching cart data:", error);
-      cartItemsContainer.innerHTML = "<p>Gagal memuat keranjang.</p>";
+      console.error("Error:", error);
+      alert("Terjadi kesalahan saat mengupdate pesanan");
     });
+}
+
+// Event listener untuk tombol quantity
+document.querySelectorAll(".btn-qty").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    e.preventDefault();
+    updateQuantity(this);
+  });
 });
 
-// Placeholder untuk fungsi
-function decreaseQuantity(id) {
-  console.log(`Kurangi jumlah item dengan ID: ${id}`);
+// Event listener untuk tombol delete
+document.querySelectorAll(".btn-delete").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    e.preventDefault();
+    const cartId = this.dataset.cartid;
+    if (confirm("Apakah Anda yakin ingin menghapus item ini?")) {
+      removeItem(cartId);
+    }
+  });
+});
+
+// Fungsi untuk menghapus item
+function removeItem(cartId) {
+  fetch("delete_cart.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `cart_id=${cartId}`,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        // Hapus baris dari tabel
+        const row = document
+          .querySelector(`[data-cartid="${cartId}"]`)
+          .closest("tr");
+        if (row) {
+          row.remove();
+          updateOrderSummary();
+        }
+      } else {
+        alert(data.message || "Gagal menghapus item");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Terjadi kesalahan saat menghapus item");
+    });
 }
 
-function increaseQuantity(id) {
-  console.log(`Tambah jumlah item dengan ID: ${id}`);
+// Fungsi untuk format angka
+function numberFormat(number) {
+  return new Intl.NumberFormat("id-ID").format(number);
 }
 
-function removeItem(id) {
-  console.log(`Hapus item dengan ID: ${id}`);
+// Fungsi untuk update order summary
+function updateOrderSummary() {
+  // Hitung total dari semua item
+  let subtotal = 0;
+  document.querySelectorAll('[id^="total-"]').forEach((elem) => {
+    const amount = parseInt(elem.textContent.replace(/\D/g, ""));
+    subtotal += amount;
+  });
+
+  // Update tampilan
+  document.getElementById("subtotal").textContent = `Rp ${numberFormat(
+    subtotal
+  )}`;
+
+  // Admin fee tetap Rp 2.000
+  const adminFee = 2000;
+
+  // Update total
+  const total = subtotal + adminFee;
+  document.getElementById("total").textContent = `Rp ${numberFormat(total)}`;
 }

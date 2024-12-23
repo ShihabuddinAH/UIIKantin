@@ -28,39 +28,3 @@ const cartButton = document.getElementById("cart-button");
 const cart = document.getElementById("cart");
 const cartItems = document.getElementById("cart-items");
 const addButtons = document.querySelectorAll(".add-button");
-
-// Tambahkan event listener ke semua tombol "Add"
-/*
-addButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const card = button.closest(".card");
-    const title = card.querySelector(".text-content .title").textContent;
-    const quantitySpan = card.querySelector(".quantity span");
-    const quantity = parseInt(quantitySpan.textContent, 10);
-
-    // Periksa apakah item sudah ada di keranjang
-    let existingItem = Array.from(cartItems.children).find(
-      (item) => item.dataset.title === title
-    );
-
-    if (existingItem) {
-      // Jika item sudah ada, perbarui kuantitasnya
-      const currentQuantity = existingItem.querySelector(".cart-item-quantity");
-      currentQuantity.textContent =
-        parseInt(currentQuantity.textContent, 10) + quantity;
-    } else {
-      // Jika item belum ada, tambahkan ke keranjang
-      const newItem = document.createElement("li");
-      newItem.dataset.title = title;
-      newItem.innerHTML = `
-     <span>${title}</span>
-     <span class="cart-item-quantity">${quantity}</span>
-   `;
-      cartItems.appendChild(newItem);
-    }
-
-    // Pastikan tombol keranjang terlihat
-    cartButton.style.display = "flex";
-  });
-});
-*/
