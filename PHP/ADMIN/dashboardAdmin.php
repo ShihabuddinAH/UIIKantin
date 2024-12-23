@@ -285,7 +285,7 @@ if (isset($_POST['delete_user'])) {
                 </table>
             </section>
             <a href="logout.php">
-                <button style="background-color: red; color: white">LOG OUT</button>
+                <button style="background-color: red; color: white">KELUAR</button>
             </a>
         </main>
     </div>
