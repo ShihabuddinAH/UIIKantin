@@ -73,7 +73,7 @@ $conn->close();
             <h4>Kantin <?= htmlspecialchars($Nama_Warung) ?></h4>
             <ul>
                 <li><a class="active" href="#">Dashboard</a></li>
-                <li><a href="#" class="button">Order List</a></li>
+                <li><a href="orderlist.php" class="button">Order List</a></li>
                 <li><a href="#">Customer</a></li>
                 <li><a href="#" class="button">Reviews</a></li>
                 <li><a href="editmenu.php" class="button">Menu</a></li>
