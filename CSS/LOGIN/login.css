@@ -179,3 +179,109 @@ body {
   color: #1a73e8;
   text-decoration: none;
 }
+
+/* General Responsive Adjustments */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    width: 90%; /* Mengurangi lebar agar tidak melebihi layar */
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    padding: 20px; /* Tambahkan ruang di sekitarnya */
+  }
+
+  .uii-kantin-image {
+    width: 100%; /* Gambar memenuhi lebar layar */
+    max-width: 500px; /* Tetap menjaga proporsi maksimal */
+    height: auto;
+  }
+}
+
+/* Tablet Screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Semua elemen ditumpuk secara vertikal */
+  }
+
+  .left-section {
+    text-align: center; /* Atur teks agar berada di tengah */
+  }
+
+  .company-logo {
+    width: 40px; /* Logo lebih kecil untuk layar tablet */
+  }
+
+  .form-container {
+    padding: 20px; /* Mengurangi padding untuk menghemat ruang */
+  }
+
+  .google-button {
+    padding: 8px 15px; /* Sesuaikan ukuran tombol */
+  }
+
+  .google-icon {
+    width: 16px; /* Ikon lebih kecil untuk tablet */
+  }
+
+  #login-form input {
+    padding: 8px; /* Mengurangi padding */
+  }
+
+  .toggle {
+    width: 150px; /* Lebar toggle lebih kecil */
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px; /* Font lebih kecil untuk layar kecil */
+  }
+
+  .uii-kantin-image {
+    width: 80%; /* Gambar lebih kecil agar pas di layar */
+    max-width: 300px;
+  }
+
+  .company-logo {
+    width: 30px; /* Logo lebih kecil untuk handphone */
+  }
+
+  .form-container {
+    padding: 15px; /* Padding lebih kecil untuk layar kecil */
+  }
+
+  .google-button {
+    padding: 6px 10px; /* Ukuran tombol lebih kecil */
+    font-size: 12px;
+  }
+
+  .google-icon {
+    width: 14px; /* Ikon lebih kecil */
+  }
+
+  #login-form input {
+    font-size: 12px; /* Font lebih kecil */
+    padding: 8px; /* Mengurangi padding */
+  }
+
+  .toggle {
+    width: 120px; /* Toggle lebih kecil */
+  }
+
+  .toggle-option {
+    font-size: 12px; /* Font lebih kecil */
+  }
+
+  .sign-in-button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .no-account {
+    font-size: 12px; /* Teks lebih kecil */
+  }
+}
