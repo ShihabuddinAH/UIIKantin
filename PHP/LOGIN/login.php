@@ -36,12 +36,6 @@ if (isset($_SESSION['username'])) {
       <div class="form-container">
         <h1>Selamat Datang di UIIKantin</h1>
         <h2>Masuk</h2>
-        
-        <!-- Google Sign-in Button -->
-        <button class="google-button">
-          <img src="../../ASSETS/LOGIN/google.webp" alt="Google Logo" class="google-icon">
-          Masuk dengan Google
-        </button>
 
         <!-- Login Form -->
         <form action="auth.php" id="login-form" method="POST">
