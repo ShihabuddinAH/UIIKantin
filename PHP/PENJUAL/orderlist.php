@@ -11,7 +11,7 @@
         <div class="sidebar">
             <h4>Kantin Makmur</h4>
             <ul>
-                <li><a href="dashboard.php" class="button">Dashboard</a></li>
+                <li><a href="dashboardPenjual.php" class="button">Dashboard</a></li>
                 <li><a class="active" href="#">Order List</a></li>
                 <li><a href="#">Customer</a></li>
                 <li><a href="#">Reviews</a></li>
