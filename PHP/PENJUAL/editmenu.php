@@ -83,15 +83,17 @@ while ($row_menu = $result_menu->fetch_assoc()) {
                     <img src="../../ASSETS/MENU/<?= htmlspecialchars($item['Gambar_Menu']) ?>" alt="<?= htmlspecialchars($item['Nama_Menu']) ?>">
                     <h5><?= htmlspecialchars($item['Nama_Menu']) ?></h5>
                     <p>Rp<?= number_format($item['Harga_Menu'], 0, ',', '.') ?></p>
-                    <a href="editDetailMenu.php?ID_Menu=<?= $item['ID_Menu'] ?>">
-                        <button>Edit</button>
-                        <button>Hapus</button>
-                    </a>
+                    <div class="actions">
+                        <a href="editDetailMenu.php?ID_Menu=<?= $item['ID_Menu'] ?>">
+                            <button class="edit">Edit</button>
+                        </a>
+                        <button class="hapus" style="display: none;" data-menu-id="<?= $item['ID_Menu'] ?>">Hapus</button>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
         <div class="buttons">
-            <button class="hapus">Hapus</button>
+            <button class="hapus-bawah">Hapus</button>
             <button class="tambahMenu">+</button>
         </div>
     </div>

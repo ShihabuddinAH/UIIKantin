@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         echo "Menu berhasil diperbarui.";
-        header('Location: menuList.php'); // Redirect ke halaman daftar menu (ubah sesuai kebutuhan)
+        header('Location: editMenu.php'); // Redirect ke halaman daftar menu (ubah sesuai kebutuhan)
         exit();
     } else {
         echo "Error: " . $stmt->error;
