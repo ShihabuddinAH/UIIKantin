@@ -65,7 +65,16 @@ $foto_profile = ($user['foto_profile']);
             <div class="profile-header">
                 <div class="profile-picture">
                     <!-- Gambar diambil dari database -->
-                    <img src="/PABW/PROYEK/EXPO/ASSETS/PROFILE/<?php echo htmlspecialchars($foto_profile); ?>" alt="Profile Picture">
+                    <?php
+                    // Check if $foto_profile is set and not empty
+                    if (isset($foto_profile) && !empty($foto_profile)) {
+                        $profile_image = htmlspecialchars($foto_profile);
+                    } else {
+                        // Use default image if $foto_profile is not set or empty
+                        $profile_image = 'profile.jpeg'; // Make sure this image exists in the specified directory
+                    }
+                    ?>
+                    <img src="../../ASSETS/PROFILE/<?php echo $profile_image; ?>" alt="Profile Picture">
                 </div>
                 <div class="profile-info">
                     <!-- Data diambil dari database -->
