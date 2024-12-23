@@ -1,6 +1,16 @@
 <?php
 include '../connect.php';
 
+function getCartItemCount($conn, $ID_Warung) {
+    $sql = "SELECT SUM(Jumlah_Pesanan) as total FROM keranjang WHERE ID_Warung = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $ID_Warung);
+    $stmt->execute();
+    $result = $stmt->get_result()->fetch_assoc();
+    return $result['total'] ? $result['total'] : 0;
+}
+
+
 // Ambil ID kantin dari URL
 $ID_Warung = isset($_GET['ID_Warung']) ? (int)$_GET['ID_Warung'] : 0;
 
@@ -71,16 +81,16 @@ $menu = $stmt->get_result();
           </div>
         <?php endwhile; ?>
         <?php else: ?>
-            <p>Belum Terdapat Menu</p>
+      <p id="cart-count"><?= getCartItemCount($conn, $ID_Warung) ?></p>
         <?php endif; ?>
     </div>
   </div>
 
   <!-- Tombol Keranjang -->
   <button id="cart-button">
-    <a href="keranjang.php">
+    <a href="keranjang.php?ID_Warung=<?= $ID_Warung ?>">
       <img src="../../ASSETS/PEMBELI/keranjang.png" alt="Cart Icon">
-      <p>0</p>
+      <p id="cart-count">0</p>
     </a>
   </button>
 

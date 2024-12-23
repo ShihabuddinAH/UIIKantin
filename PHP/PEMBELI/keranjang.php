@@ -8,6 +8,8 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
+$ID_Warung = $_GET['ID_Warung'];
+
 // Get user ID
 $stmt = $conn->prepare("SELECT id_pengguna FROM user WHERE username = ?");
 $stmt->bind_param("s", $_SESSION['username']);
@@ -49,70 +51,71 @@ $result = $stmt->get_result();
             <table class="cart-table">
                 <thead>
                     <tr>
-                        <th>Nama Produk</th>
+                        <th>Nama Menu</th>
                         <th>Harga</th>
                         <th>Jumlah</th>
-                        <th>Total</th>
-                        <th>Aksi</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
+                    // Di dalam loop while untuk menampilkan items:
                     $grandTotal = 0;
                     while ($row = $result->fetch_assoc()): 
-                        $grandTotal += $row['Total'];
+                        // Hitung total per item
+                        $itemTotal = $row['Harga_Menu'] * $row['Jumlah_Pesanan'];
+                        $grandTotal += $itemTotal;
                     ?>
                         <tr>
                             <td><?= htmlspecialchars($row['Nama_Menu']) ?></td>
                             <td>Rp <?= number_format($row['Harga_Menu'], 0, ',', '.') ?></td>
                             <td>
                                 <div class="quantity-control">
-                                    <button class="btn-qty" onclick="updateQuantity(<?= $row['ID_Keranjang'] ?>, 'decrease')">-</button>
-                                    <span><?= $row['Jumlah_Pesanan'] ?></span>
-                                    <button class="btn-qty" onclick="updateQuantity(<?= $row['ID_Keranjang'] ?>, 'increase')">+</button>
+                                    <button class="btn-qty" data-cartid="<?= $row['ID_Keranjang'] ?>" data-action="decrease">-</button>
+                                    <span id="quantity-<?= $row['ID_Keranjang'] ?>" class="quantity-display">
+                                        <?= $row['Jumlah_Pesanan'] ?>
+                                    </span>
+                                    <button class="btn-qty" data-cartid="<?= $row['ID_Keranjang'] ?>" data-action="increase">+</button>
                                 </div>
                             </td>
-                            <td>Rp <?= number_format($row['Total'], 0, ',', '.') ?></td>
+                            <td id="total-<?= $row['ID_Keranjang'] ?>">
+                                Rp <?= number_format($itemTotal, 0, ',', '.') ?>
+                            </td>
                             <td>
-                                <button onclick="removeItem(<?= $row['ID_Keranjang'] ?>)" class="btn-delete">Hapus</button>
+                                <button class="btn-delete" data-cartid="<?= $row['ID_Keranjang'] ?>">Hapus</button>
                             </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
-                <!-- <tfoot> 
-                    <tr>
-                        <td colspan="3" class="text-right"><strong>Total Belanja:</strong></td>
-                        <td colspan="2"><strong>Rp <?= number_format($grandTotal, 0, ',', '.') ?></strong></td>
-                    </tr>
-                </tfoot>-->
             </table>
-            
-            <!-- <div class="cart-actions"> 
-                <button onclick="window.location.href='checkout.php'" class="btn-checkout">Checkout</button>
-            </div>-->
         <?php else: ?>
             <p class="empty-cart">Keranjang belanja kosong</p>
             <a href="utama.php" class="btn-shopping">Mulai Belanja</a>
         <?php endif; ?>
     </section>
 
-    <!-- Rangkuman Pesanan -->
-    <section class="order-summary">
-      <h2>Order Summary</h2>
-      <div class="summary-item">
+    <!-- Bagian summary -->
+<section class="order-summary">
+    <a href="menu.php?ID_Warung=<?= $ID_Warung ?>" style="float: right;">
+        <button>Batal</button>
+    </a>
+    <h2>Pesanan</h2>
+    <div class="summary-item">
         <span>Subtotal</span>
-        <span id="subtotal">Rp 0</span>
-      </div>
-      <div class="summary-item">
-        <span>Admin fees</span>
-        <span id="admin-fees">Rp 2,000</span>
-      </div>
-      <div class="summary-item total">
+        <span id="subtotal">Rp <?= number_format($grandTotal, 0, ',', '.') ?></span>
+    </div>
+    <div class="summary-item">
+        <span>Biaya Admin</span>
+        <span id="admin-fees">Rp 2.000</span>
+    </div>
+    <div class="summary-item total">
         <span>Total</span>
-        <span id="total">Rp 0</span>
-      </div>
-      <button class="checkout-button">Checkout</button>
-    </section>
+        <span id="total">Rp <?= number_format($grandTotal + 2000, 0, ',', '.') ?></span>
+    </div>
+    <button class="checkout-button">Checkout</button>
+</section>
   </div>
+  <script src="../../SCRIPT/PEMBELI/keranjang.js"></script>
 </body>
 </html>

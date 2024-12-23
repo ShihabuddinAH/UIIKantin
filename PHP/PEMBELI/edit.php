@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="container">
         <div class="main-content">
           <div class="profile-pic">
-          <img src="../../ASSETS/PROFILE/<?php echo htmlspecialchars($foto_profile); ?>" alt="Profile Picture">
+          <img src="/PABW/PROYEK/EXPO/ASSETS/PROFILE/<?php echo htmlspecialchars($foto_profile); ?>" alt="Profile Picture">
             <div class="edit-icon">✏️</div>
           </div>
           <form method="POST">
