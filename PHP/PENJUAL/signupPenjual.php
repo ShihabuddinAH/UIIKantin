@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label>Foto Kantin</label>
-                        <input type="file" name="Gambar_Warung" recuired>
+                        <input type="file" name="Gambar_Warung" id="Gambar_Warung" recuired>
                     </div>
                     <button type="submit">Submit</button>
                 </form>

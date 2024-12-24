@@ -17,7 +17,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="PHP/ADMIN/auth.php" method="POST">
+                <form action="../PHP/ADMIN/auth.php" method="POST">
                     
                     <!-- Hidden input to store toggle state -->
                     <input type="hidden" id="role" name="role" value="admin">
