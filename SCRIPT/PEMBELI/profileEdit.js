@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const photoUpload = document.querySelector(".edit-icon");
-  const inputFile = document.querySelector("#gambar_menu");
+  const inputFile = document.querySelector("#foto_profile");
 
   photoUpload.addEventListener("click", function () {
     inputFile.click();

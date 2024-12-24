@@ -16,31 +16,48 @@ if ($result->num_rows == 0) {
 }
 
 $user = $result->fetch_assoc();
-$foto_profile = ($user['foto_profile']);
+// $foto_profile = ($user['foto_profile']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_lengkap = $_POST['nama'];
-    $username = $_POST['username'];
     $email = $_POST['email'];
     $kontak = $_POST['kontak'];
 
-    $sql_update = "UPDATE user SET 
-                   nama = '$nama_lengkap', 
-                   email = '$email', 
-                   kontak = '$kontak' 
-                   WHERE ID_Pengguna = $id";
+    // Handle file upload
+    if (isset($_FILES['foto_profile']) && $_FILES['foto_profile']['error'] == 0) {
+      $target_dir = "../../ASSETS/PROFILE/";
+      $target_file = $target_dir . basename($_FILES['foto_profile']['name']);
+      if (move_uploaded_file($_FILES['foto_profile']['tmp_name'], $target_file)) {
+          $foto_profile = $_FILES['foto_profile']['name'];
+      } else {
+          echo "Error uploading file.";
+      }
+  }
 
-    if ($conn->query($sql_update) === TRUE) {
+  // Update user info
+  $sql_update = "UPDATE user SET 
+                 nama = ?, 
+                 email = ?,
+                 kontak = ?, 
+                 foto_profile = ? 
+                 WHERE ID_Pengguna = ?";
+  $stmt = $conn->prepare($sql_update);
+  $stmt->bind_param("ssssi", $nama_lengkap, $email, $kontak, $foto_profile, $id);
+
+  if ($stmt->execute()) {
       // Update session data with new values after successful update
       $_SESSION['email'] = $email;        // Update session with new email
       $_SESSION['kontak'] = $kontak;      // Update session with new contact info
       $_SESSION['nama'] = $nama_lengkap;  // Update session with new full name
 
-        header("Location: profile.php");
-        exit();
-    } else {
-        echo "Error: " . $conn->error;
-    }
+      header("Location: profile.php");
+      exit();
+  } else {
+      echo "Error: " . $stmt->error;
+  }
+
+  $stmt->close();
+  $conn->close();
 }
 ?>
 
@@ -62,19 +79,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="container">
         <div class="main-content">
           <div class="profile-pic">
-            <?php
-            // Check if $foto_profile is set and not empty
-            if (isset($foto_profile) && !empty($foto_profile)) {
-                $profile_image = htmlspecialchars($foto_profile);
-            } else {
-                // Use default image if $foto_profile is not set or empty
-                $profile_image = 'profile.jpeg'; // Make sure this image exists in the specified directory
-            }
-            ?>
-            <img src="../../ASSETS/PROFILE/<?php echo $profile_image; ?>" alt="Profile Picture">
+              <?php
+              // Check if $foto_profile is set and not empty
+              if (isset($foto_profile) && !empty($foto_profile)) {
+                  $profile_image = htmlspecialchars($foto_profile);
+              } else {
+                  // Use default image if $foto_profile is not set or empty
+                  $profile_image = 'profile.jpeg'; // Make sure this image exists in the specified directory
+              }
+              ?>
+              <img src="../../ASSETS/PROFILE/<?php echo $profile_image; ?>" alt="Profile Picture">
             <div class="edit-icon">✏️</div>
           </div>
-          <form method="POST">
+          <form method="POST" enctype="multipart/form-data">
+            <!-- Tambahkan input file ke dalam form -->
+            <input type="file" name="foto_profile" id="foto_profile" style="display: none;" required>
+          
             <label for="full-name">Full Name</label>
             <input type="text" id="nama" name="nama" value="<?= $user['nama'] ?>" required/>
 
@@ -97,5 +117,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </div>
     </main>
+    <script src="../../SCRIPT/PEMBELI/profileEdit.js"></script>
   </body>
 </html>
