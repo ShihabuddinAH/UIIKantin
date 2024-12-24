@@ -81,7 +81,7 @@ if (isset($_SESSION['username'])) {
       <div class="container">
         <h2 class="section-title">Kantin Favorit</h2>
         <div class="kantin-list">
-        <?php while ($row = $result->fetch_assoc()): ?>
+          <?php while ($row = $result->fetch_assoc()): ?>
               <a href="menu.php?ID_Warung=<?= $row['ID_Warung'] ?>" class="kantin-link">
                   <div class="kantin-card">
                       <div class="kantin-image" style="background-image: url('../../ASSETS/KANTIN/<?= $row['Gambar_Warung'] ?>');"></div>

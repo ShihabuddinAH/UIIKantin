@@ -2,64 +2,89 @@
 session_start();
 include '../connect.php';
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if (!isset($_GET['ID_Pengguna'])) {
     die("ID tidak ditemukan.");
 }
 
 $id = $_GET['ID_Pengguna'];
 
-$sql = "SELECT * FROM user WHERE ID_Pengguna = $id";
-$result = $conn->query($sql);
+$sql = "SELECT * FROM user WHERE ID_Pengguna = ?";
+$stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
+}
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
 
 if ($result->num_rows == 0) {
     die("Pengguna tidak ditemukan.");
 }
 
 $user = $result->fetch_assoc();
-// $foto_profile = ($user['foto_profile']);
+$foto_profile = $user['foto_profile'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_lengkap = $_POST['nama'];
     $email = $_POST['email'];
     $kontak = $_POST['kontak'];
+    $password = $_POST['password'];
 
-    // Handle file upload
     if (isset($_FILES['foto_profile']) && $_FILES['foto_profile']['error'] == 0) {
-      $target_dir = "../../ASSETS/PROFILE/";
-      $target_file = $target_dir . basename($_FILES['foto_profile']['name']);
-      if (move_uploaded_file($_FILES['foto_profile']['tmp_name'], $target_file)) {
-          $foto_profile = $_FILES['foto_profile']['name'];
-      } else {
-          echo "Error uploading file.";
-      }
-  }
+        $target_dir = "../../ASSETS/PROFILE/";
+        $target_file = $target_dir . basename($_FILES['foto_profile']['name']);
+        if (move_uploaded_file($_FILES['foto_profile']['tmp_name'], $target_file)) {
+            $foto_profile = $_FILES['foto_profile']['name'];
+        } else {
+            echo "Error uploading file.";
+        }
+    }
 
-  // Update user info
-  $sql_update = "UPDATE user SET 
-                 nama = ?, 
-                 email = ?,
-                 kontak = ?, 
-                 foto_profile = ? 
-                 WHERE ID_Pengguna = ?";
-  $stmt = $conn->prepare($sql_update);
-  $stmt->bind_param("ssssi", $nama_lengkap, $email, $kontak, $foto_profile, $id);
+    $sql_update = "UPDATE user SET 
+                   nama = ?, 
+                   email = ?, 
+                   kontak = ?, 
+                   foto_profile = ?";
 
-  if ($stmt->execute()) {
-      // Update session data with new values after successful update
-      $_SESSION['email'] = $email;        // Update session with new email
-      $_SESSION['kontak'] = $kontak;      // Update session with new contact info
-      $_SESSION['nama'] = $nama_lengkap;  // Update session with new full name
+    $params = [$nama_lengkap, $email, $kontak, $foto_profile];
+    $types = "ssss";
 
-      header("Location: profile.php");
-      exit();
-  } else {
-      echo "Error: " . $stmt->error;
-  }
+    if (!empty($password)) {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $sql_update .= ", password = ?";
+        $params[] = $hashed_password;
+        $types .= "s";
+    }
 
-  $stmt->close();
-  $conn->close();
+    $sql_update .= " WHERE ID_Pengguna = ?";
+    $params[] = $id;
+    $types .= "i";
+
+    $stmt = $conn->prepare($sql_update);
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+    $stmt->bind_param($types, ...$params);
+
+    if (!$stmt->execute()) {
+        die("Query error: " . $stmt->error);
+    }
+
+    $_SESSION['email'] = $email;
+    $_SESSION['kontak'] = $kontak;
+    $_SESSION['nama'] = $nama_lengkap;
+
+    header("Location: profile.php");
+    exit();
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,9 +118,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
           <form method="POST" enctype="multipart/form-data">
             <!-- Tambahkan input file ke dalam form -->
-            <input type="file" name="foto_profile" id="foto_profile" style="display: none;" required>
+            <input type="file" name="foto_profile" id="foto_profile" style="display: none;">
           
-            <label for="full-name">Full Name</label>
+            <label for="nama">Full Name</label>
             <input type="text" id="nama" name="nama" value="<?= $user['nama'] ?>" required/>
 
             <label for="email">Email</label>
@@ -104,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Ubah Password Anda"/>
 
-            <label for="phone">No Telp</label>
+            <label for="kontak">No Telp</label>
             <input type="tel" id="kontak" name="kontak" value="<?= $user['kontak'] ?>" required/>
 
             <div class="buttons">

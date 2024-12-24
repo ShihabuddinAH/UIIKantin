@@ -35,24 +35,24 @@ $result = $conn->query("SELECT * FROM kantin");
       <!-- Main Content -->
   <main>
     <!-- Section: Kantin Favorit -->
-<section class="kantin-favorit">
-  <div class="container">
-    <div class="kantin-list">
-      <?php while ($row = $result->fetch_assoc()): ?>
-          <a href="menu.php?ID_Warung=<?= $row['ID_Warung'] ?>" class="kantin-link">
-            <div class="kantin-card">
-              <div class="kantin-image" style="background-image: url('../../ASSETS/KANTIN/<?= $row['Gambar_Warung'] ?>');"></div>
-                <div class="kantin-info">
-                    <h3><?= htmlspecialchars($row['Nama_Warung']) ?></h3>
-                    <p>Rating: <?= $row['rating'] ?></p>
+    <section class="kantin-favorit">
+      <div class="container">
+        <div class="kantin-list">
+          <?php while ($row = $result->fetch_assoc()): ?>
+              <a href="menu.php?ID_Warung=<?= $row['ID_Warung'] ?>" class="kantin-link">
+                <div class="kantin-card">
+                  <div class="kantin-image" style="background-image: url('../../ASSETS/KANTIN/<?= $row['Gambar_Warung'] ?>');"></div>
+                    <div class="kantin-info">
+                        <h3><?= htmlspecialchars($row['Nama_Warung']) ?></h3>
+                        <p>Rating: <?= $row['rating'] ?></p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </a>
-        <?php endwhile; ?>
-    </div>
-  </div>
-</section>
+              </a>
+            <?php endwhile; ?>
+        </div>
+      </div>
+    </section>
   </main>
   <!-- Footer -->
   <footer class="footer">
