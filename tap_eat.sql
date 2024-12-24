@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2024 at 06:58 AM
+-- Generation Time: Dec 24, 2024 at 04:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,8 +42,9 @@ CREATE TABLE `kantin` (
 --
 
 INSERT INTO `kantin` (`ID_Warung`, `ID_Pengguna`, `Nama_Warung`, `Gambar_Warung`, `rating`, `Total_Order`, `Total_Hasil`) VALUES
-(12, 25, 'Andi Kyud', 'Screenshot 2024-12-18 004716.png', 0, 0, 0),
-(13, 37, 'Ali', 'warung_6767abc4c6e851.32068192.png', 0, 0, 0);
+(14, 38, 'Ahmad', 'kantinahmad.jpg', 0, 0, 0),
+(15, 39, 'Bude Macan', 'kantinbude.jpg', 0, 0, 0),
+(16, 40, 'Bu Siti', 'kantinsiti.jpg', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -56,18 +57,9 @@ CREATE TABLE `keranjang` (
   `ID_Menu` int(11) NOT NULL,
   `ID_Pengguna` int(11) NOT NULL,
   `Jumlah_Pesanan` int(11) NOT NULL,
-  `Subtotal_Harga` int(11) NOT NULL
+  `Subtotal_Harga` int(11) NOT NULL,
+  `status` enum('checkout','belum checkout','diterima','ditolak','dibuat','selesai') NOT NULL DEFAULT 'belum checkout'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `keranjang`
---
-
-INSERT INTO `keranjang` (`ID_Keranjang`, `ID_Menu`, `ID_Pengguna`, `Jumlah_Pesanan`, `Subtotal_Harga`) VALUES
-(1, 5, 23, 5, 0),
-(2, 4, 23, 4, 0),
-(3, 4, 35, 1, 0),
-(4, 5, 35, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -90,8 +82,13 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`ID_Menu`, `ID_Warung`, `Nama_Menu`, `Deskripsi_Menu`, `Harga_Menu`, `Gambar_Menu`, `Stok_Menu`) VALUES
-(4, '12', 'Tupai Goreng', 'enak', 10000.00, 'Screenshot 2024-12-18 004716.png', 10),
-(5, '12', 'Bintang goreng', 'Hitam', 0.00, 'Screenshot 2024-11-08 225141.png', 10);
+(7, '13', 'Ayam', 'digoreng', 12000.00, 'Screenshot (2).png', 0),
+(8, '14', 'Mie Ayam', 'Menggunakan Ayam Jago', 15000.00, 'mie ayam.jpg', 0),
+(9, '14', 'Bakso ', 'Menggunakan Sapi Madura', 16000.00, 'bakso.jpg', 0),
+(10, '15', 'Ayam Bakar', 'Dibakar menggunakan api', 17000.00, 'ayam bakar.webp', 0),
+(11, '15', 'Gado-Gado', 'Gado-Gado bukan pecel', 12000.00, 'gado-gado.jpeg', 0),
+(12, '16', 'Nasi Goreng', 'Tidak digoreng', 10000.00, 'nasi goreng.jpeg', 0),
+(13, '16', 'Nasi Kuning', 'Bukan nasi golkar', 12000.00, 'nasi kuning.webp', 0);
 
 -- --------------------------------------------------------
 
@@ -108,7 +105,7 @@ CREATE TABLE `user` (
   `role` enum('admin','seller','buyer') NOT NULL,
   `status` enum('aktif','nonaktif') NOT NULL DEFAULT 'nonaktif',
   `nama` varchar(255) NOT NULL DEFAULT 'Bocil Ngoding',
-  `foto_profile` varchar(255) DEFAULT 'profile.jpeg'
+  `foto_profile` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -116,11 +113,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_pengguna`, `username`, `email`, `password`, `kontak`, `role`, `status`, `nama`, `foto_profile`) VALUES
-(1, 'admin@UIIKANTIN', 'UIIKantin@TapEat', '$2y$10$7aOHEXovF/hbIiUiJ6Mq6uUUM9KP0scofhmryx6avXhi5oEjH7Zkm', 0, 'admin', 'nonaktif', 'Bocil Ngoding', '0'),
-(23, 'Shihab', 'Shihab@gmail.com', '$2y$10$fwfa5IrT/29VFcAvCti.IOkHM5cs.DD.ZajAUgiiHlgYgRlbep/z6', 222, 'buyer', 'nonaktif', 'Shihab', '0'),
-(25, 'Andi', 'Andi@gmail.com', '$2y$10$YyoQJjjzfHL/M4RoB/4GvemnPyj30mW0czCRGa/03WEsi7J.ZCXzS', 123, 'seller', 'nonaktif', 'Bocil Ngoding', '0'),
-(35, 'ccc', 'TES1@gmail.com', '$2y$10$9Ut3Lofk6WCmtfjD3hKzY.JNNqgEASiSaJom0QBghxi.LSpOT4YiW', 123, 'buyer', 'aktif', 'Bocil Ngoding', '0'),
-(37, 'aaa', 'TES1@gmail.com', '$2y$10$jmHsRAhFXCmC62IntNWj7OIij3QhPRTh.4P5DhBW24qVWEez3tLou', 123, 'seller', 'nonaktif', 'Bocil Ngoding', '0');
+(1, 'admin@UIIKANTIN', 'UIIKantin@TapEat', '$2y$10$7aOHEXovF/hbIiUiJ6Mq6uUUM9KP0scofhmryx6avXhi5oEjH7Zkm', 0, 'admin', 'nonaktif', 'Bocil Ngoding', NULL),
+(38, 'Ahmad', 'Ahmad@gmail.com', '$2y$10$1qvRtzg.eJKbt1HA2khj1OtMj0WHbWZQ21Vx13fSyIimfbBnpWfV2', 2147483647, 'seller', 'nonaktif', 'Bocil Ngoding', NULL),
+(39, 'Bude', 'Bude@gmail.com', '$2y$10$PhyWYXN02CLa09278B.VW.hQFMTxSUtQcwIbsd5ffHTD/6tdLqISG', 2147483647, 'seller', 'nonaktif', 'Bocil Ngoding', NULL),
+(40, 'Siti', 'Siti@gmail.com', '$2y$10$FeyWuWzn/Tw69fKwSKWg4O0YovjICVnXYjLHqNKyNnJLZuRTEajj.', 2147483647, 'seller', 'nonaktif', 'Bocil Ngoding', NULL),
+(43, 'Shihab', 'Shihab@gmail.com', '$2y$10$5dfqCwDb0wK2xIt2bzebbe7wb8hsZADHK9pFy3DmaFpiiuZ8Eq2ce', 2147483647, 'buyer', 'nonaktif', 'Shihab', 'account.png');
 
 --
 -- Indexes for dumped tables
@@ -163,25 +160,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `kantin`
 --
 ALTER TABLE `kantin`
-  MODIFY `ID_Warung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Warung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `ID_Keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_Keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `ID_Menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_Menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
