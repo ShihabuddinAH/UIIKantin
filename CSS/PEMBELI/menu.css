@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #365e32;
+  background-color: #0F2043;
   color: white;
   padding: 1rem 0;
 }
@@ -169,7 +169,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #007bff;
+  background: #8AB9F1;
   border: none;
   border-radius: 50%;
   width: 60px;

@@ -114,7 +114,7 @@ td {
 }
 
 th {
-  background-color: #365e32; /* Header color */
+  background-color: #0F2043; /* Header color */
   color: white;
 }
 
@@ -147,7 +147,7 @@ th {
   display: block;
   width: 100%;
   padding: 10px 0;
-  background-color: #365e32;
+  background-color: #3361AC;
   color: #fff;
   text-align: center;
   border: none;
@@ -158,5 +158,5 @@ th {
 }
 
 .checkout-button:hover {
-  background-color: #2a4726;
+  background-color: #E7E6DD;
 }

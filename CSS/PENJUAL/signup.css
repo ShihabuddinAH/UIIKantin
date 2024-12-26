@@ -5,6 +5,8 @@
 }
 
 body {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+  url(../../ASSETS/LANDING-PAGE/background.png);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -21,7 +23,7 @@ body {
 }
 
 .header {
-  background-color: #365e32;
+  background-color:#162F65;
   color: white;
   padding: 20px;
   text-align: left;
@@ -57,18 +59,18 @@ body {
 button {
   width: auto;
   padding: 8px 16px;
-  background-color: #fd9b63;
+  background-color: #e8c01d;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 10px;
   text-align: left;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-  background-color: #81a263;
+  background-color: #ddd;
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

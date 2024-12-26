@@ -5,7 +5,6 @@ body, html {
   margin: 0;
   font-family: 'Poppins', serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
   color: #333;
   height: 100%;
   display: flex;
@@ -191,7 +190,7 @@ main {
 
 /* Bottom Navbar Styles */
 .bottom-navbar {
-  background-color: #81a263; /* Warna latar belakang */
+  background-color: #162F65; /* Warna latar belakang */
   padding: 2rem 0;
   border-top: 1px solid #fff; /* Garis pemisah atas */
 }
@@ -257,7 +256,7 @@ main {
 .newsletter button {
   padding: 0.5rem 1rem;
   border: none;
-  background-color: #fd9b63;
+  background-color: #E8AF30;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
@@ -265,7 +264,7 @@ main {
 }
 
 .newsletter button:hover {
-  background-color: #2c4d29;
+  background-color: #E8C766;
 }
 
 /* Responsive Adjustment */
@@ -281,7 +280,7 @@ main {
 }
 
 .footer {
-  background-color: #365e32;
+  background-color: #0F2043;
   color: white;
   padding: 1rem 0;
   text-align: center;
