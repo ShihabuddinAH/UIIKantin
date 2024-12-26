@@ -31,6 +31,7 @@ body {
 
 .main {
   display: flex;
+  flex-direction: column;
 }
 
 .left-column {
@@ -73,4 +74,67 @@ button:hover {
   background-color: #ddd;
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Responsiveness */
+
+/* 1200px and below */
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .header {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 12px;
+  }
+}
+
+/* 768px and below */
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .form-group input {
+    padding: 12px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* 480px and below */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .header {
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+  .form-group input {
+    padding: 12px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }

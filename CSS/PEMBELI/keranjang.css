@@ -160,3 +160,99 @@ th {
 .checkout-button:hover {
   background-color: #E7E6DD;
 }
+
+/* Untuk layar dengan max-width 1200px */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column; /* Mengubah layout menjadi kolom */
+    gap: 15px; /* Kurangi jarak antar elemen */
+    padding: 20px;
+  }
+
+  .cart-items, .order-summary {
+    flex: 1; /* Ambil seluruh lebar parent */
+  }
+
+  .cart-table th, .cart-table td {
+    font-size: 0.9rem; /* Kurangi ukuran font tabel */
+    padding: 8px; /* Kurangi padding tabel */
+  }
+
+  .order-summary {
+    padding: 15px; /* Kurangi padding summary */
+  }
+}
+
+/* Untuk layar dengan max-width 768px (tablet) */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Kurangi padding container */
+  }
+
+  .cart-items {
+    padding: 15px; /* Kurangi padding daftar pesanan */
+  }
+
+  table {
+    font-size: 0.85rem; /* Kurangi ukuran font tabel */
+  }
+
+  .cart-table th, .cart-table td {
+    padding: 6px; /* Kurangi padding tabel */
+  }
+
+  .order-summary h2 {
+    font-size: 1.2rem; /* Ukuran heading lebih kecil */
+  }
+
+  .checkout-button {
+    font-size: 0.9rem; /* Ukuran tombol lebih kecil */
+    padding: 8px; /* Kurangi padding tombol */
+  }
+}
+
+/* Untuk layar dengan max-width 480px (ponsel kecil) */
+@media (max-width: 480px) {
+  body, html {
+    font-size: 12px; /* Ukuran font default lebih kecil */
+  }
+
+  .container {
+    flex-direction: column; /* Layout menjadi kolom */
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .cart-items, .order-summary {
+    padding: 10px;
+    box-shadow: none; /* Hilangkan bayangan pada elemen */
+  }
+
+  table {
+    width: 100%; /* Pastikan tabel menyesuaikan lebar */
+  }
+
+  .cart-table th, .cart-table td {
+    font-size: 0.8rem; /* Ukuran font lebih kecil */
+    padding: 5px; /* Kurangi padding tabel */
+  }
+
+  .quantity-button {
+    padding: 4px 6px; /* Kurangi ukuran tombol */
+    font-size: 0.8rem;
+  }
+
+  .order-summary h2 {
+    font-size: 1rem; /* Heading lebih kecil */
+    margin-bottom: 10px;
+  }
+
+  .summary-item {
+    font-size: 0.85rem; /* Ukuran item lebih kecil */
+  }
+
+  .checkout-button {
+    font-size: 0.85rem; /* Ukuran tombol lebih kecil */
+    padding: 6px; /* Kurangi padding tombol */
+  }
+}

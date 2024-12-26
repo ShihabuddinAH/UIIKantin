@@ -229,3 +229,124 @@ body {
   float: right;
   margin-left: 16px;
 }
+
+/* Responsiveness */
+
+/* Max-width 1200px */
+@media (max-width: 1200px) {
+  .stats {
+    flex-wrap: wrap;
+  }
+
+  .stats .card {
+    flex: 0 0 48%;
+  }
+
+  .chart-container {
+    flex-wrap: wrap;
+  }
+
+  .chart-container .card {
+    flex: 0 0 48%;
+  }
+
+  .review-container {
+    justify-content: space-around;
+  }
+
+  .review-card {
+    width: 45%;
+  }
+}
+
+/* Max-width 768px */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .stats .card {
+    flex: 1;
+  }
+
+  .chart-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .chart-container .card {
+    flex: 1;
+  }
+
+  .review-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .review-card {
+    width: 100%;
+  }
+}
+
+/* Max-width 480px */
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 10px;
+  }
+
+  .sidebar h4 {
+    font-size: 1rem;
+  }
+
+  .sidebar a {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .circle-chart {
+    width: 100px;
+    height: 100px;
+  }
+
+  .review-container {
+    gap: 10px;
+  }
+
+  .review-card {
+    padding: 15px;
+  }
+
+  .reviewer-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .reviewer-name {
+    font-size: 18px;
+  }
+
+  .review-date {
+    font-size: 13px;
+  }
+
+  .review-text {
+    font-size: 13px;
+  }
+}

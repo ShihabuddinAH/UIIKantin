@@ -145,8 +145,8 @@ button:hover {
 
 .card .actions {
   display: flex;
-  justify-content: center; /* Default: Posisi tombol di tengah */
-  gap: 10px; /* Jarak antar tombol */
+  justify-content: center;
+  gap: 10px;
 }
 
 .card .actions .edit {
@@ -171,5 +171,72 @@ button:hover {
 }
 
 .card .actions .edit.centered {
-  margin: 0 auto; /* Pastikan tombol Edit di tengah */
+  margin: 0 auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .card {
+    width: calc(33.33% - 20px);
+  }
+
+  .sidebar {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px);
+  }
+
+  .sidebar {
+    width: 150px;
+    padding: 15px;
+  }
+
+  .sidebar h4 {
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .content {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .card img {
+    height: 100px;
+  }
+
+  .buttons {
+    position: static;
+    justify-content: center;
+  }
 }

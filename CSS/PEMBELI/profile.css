@@ -189,3 +189,132 @@ main {
   margin: 0;
   font-size: 0.9rem;
 }
+
+/* Responsive styles for max-width 1200px */
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-picture img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+
+  .profile-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .profile-actions button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .canteen-images img {
+    width: calc(50% - 10px);
+  }
+}
+
+/* Responsive styles for max-width 768px */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-picture img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-actions button {
+    font-size: 0.85rem;
+  }
+
+  .canteen-images img {
+    width: calc(50% - 10px);
+  }
+}
+
+/* Responsive styles for max-width 480px */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 0.5rem;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-picture img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-info h3 {
+    font-size: 1rem;
+  }
+
+  .profile-actions button {
+    font-size: 0.8rem;
+    padding: 6px;
+    width: 100%;
+  }
+
+  .canteen-images {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .canteen-images img {
+    width: 100%;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+  }
+}
