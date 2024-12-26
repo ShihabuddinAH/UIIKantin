@@ -46,7 +46,7 @@ nav {
   text-decoration: none;
   color: #fff;
   padding: 10px 20px;
-  font-size: 20px;
+  font-size: 14px;
   border-radius: 8px;
   background: var(--secondary);
 }
@@ -81,6 +81,7 @@ nav {
   color: #fff;
   letter-spacing: 5px;
   transition: 0.4s;
+  justify-content: center;
 }
 
 .h-text a:hover {

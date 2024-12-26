@@ -17,10 +17,30 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../CSS/PENJUAL/list.css">
     <title>Riwayat Pesanan</title>
 </head>
+
 <body>
+            <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <h1 class="site-title">Riwayat Pesanan</h1>
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li><a href="kantin.php" class="navbar-link">Kantin</a></li>
+          <li><a href="riwayatPesanan.php" class="navbar-link">Riwayat Pesanan</a></li>
+          <li><a href="profile.php" class="navbar-link">Profile</a></li>
+        </ul>
+        <div class="search-box">
+          <input type="text" placeholder="Search in site" class="search-input">
+          <button class="search-button">
+            <img src="assets/search.png" alt="Search" class="search-icon">
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
 <div class="dashboard-container">
         <div class="main-content">
-            <h1>Riwayat Pesanan</h1>
             <table>
                 <thead>
                     <tr>
@@ -78,5 +98,6 @@ if (!isset($_SESSION['username'])) {
             </table>
         </div>
     </div>
+    <main>
 </body>
 </html>
