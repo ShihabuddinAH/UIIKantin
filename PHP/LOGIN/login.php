@@ -48,7 +48,7 @@ if (isset($_SESSION['username'])) {
           <!-- Hidden input to store toggle state -->
           <input type="hidden" id="role" name="role" value="buyer">
 
-          <a href="#" class="forgot-password">Lupa</a>
+          <a href="#" class="forgot-password">Lupa Password?</a>
           <button type="submit" class="sign-in-button">Masuk</button>
         </form>
 

@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+  url(../../ASSETS/LANDING-PAGE/background.png);
+  margin: 20px;
+  padding: 20px;
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   background-color: #f4f4f9;
+  font-size: 14px;
 }
 
 .signup-container {
@@ -22,37 +25,42 @@ body {
 }
 
 .left-section {
-  width: 50%;
-  background-color: #fff;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-}
-
-.left-section img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 20px;
+  gap: 20px;
 }
 
 .uii-kantin-logo {
   width: 300px; /* Ubah sesuai kebutuhan */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .tap-eat-logo {
   width: 50px; /* Ubah sesuai kebutuhan */
+  height: auto;
+  object-fit: contain;
 }
 
 .right-section {
-  padding: 30px;
-  border-radius: 10px;
-  
+  max-width: 100%;
+  width: 60%;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup-form-container {
   max-width: 400px;
+  width: 100%;
   margin: 0 auto;
   background-color: #f0f0f0;
   padding: 30px; /* Ruang di sekitar elemen */
@@ -63,7 +71,6 @@ body {
 .signup-form-container h1 {
   font-size: 24px;
   color: #333;
-  margin-bottom: 10px;
 }
 
 .signup-form-container h2 {
@@ -73,7 +80,7 @@ body {
 }
 
 .signup-form-container .already-account {
-  text-align: right;
+  text-align: center;
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -87,6 +94,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  font-size: 14px;
 }
 
 .signup-form label {
@@ -122,4 +130,86 @@ body {
 
 .signup-button:hover {
   background-color: #145bb5;
+}
+
+/* Untuk layar dengan max-width 1200px */
+@media (max-width: 1200px) {
+  .signup-container {
+    flex-direction: column; /* Mengubah layout menjadi vertikal */
+    width: 90%; /* Mengurangi lebar container */
+  }
+
+  .left-section, .right-section {
+    width: 100%; /* Kedua section mengambil seluruh lebar */
+    padding: 20px; /* Sesuaikan padding untuk ruang tambahan */
+  }
+
+  .signup-form-container {
+    max-width: 100%; /* Form mengikuti lebar parent */
+  }
+
+  .uii-kantin-logo {
+    width: 80%; /* Gambar logo lebih kecil */
+  }
+}
+
+/* Untuk layar dengan max-width 768px (tablet) */
+@media (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    text-align: center;
+  }
+
+  .signup-form-container {
+    max-width: 90%; /* Ambil 90% dari lebar layar */
+    padding: 10px; /* Kurangi padding */
+  }
+
+  .signup-button {
+    font-size: 12px; /* Sesuaikan ukuran font tombol */
+    padding: 8px; /* Sesuaikan padding tombol */
+  }
+}
+
+/* Untuk layar dengan max-width 480px (ponsel kecil) */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px; /* Kurangi ukuran font */
+    padding: 0; /* Hilangkan padding pada body */
+  }
+
+  .signup-container {
+    box-shadow: none; /* Hilangkan bayangan pada container */
+  }
+
+  .right-section {
+    padding: 10px; /* Kurangi padding di kanan */
+  }
+
+  .signup-form-container {
+    padding: 10px; /* Kurangi padding form */
+    max-width: 100%; /* Gunakan seluruh lebar layar */
+  }
+
+  .signup-form input {
+    font-size: 12px; /* Ukuran font lebih kecil */
+    padding: 8px; /* Kurangi padding input */
+  }
+
+  .signup-form .two-column {
+    flex-direction: column; /* Ubah input jadi satu kolom */
+    gap: 10px; /* Kurangi jarak antar input */
+  }
+
+  .signup-button {
+    font-size: 12px; /* Ukuran font tombol lebih kecil */
+    padding: 8px; /* Kurangi padding tombol */
+  }
+
+  .already-account {
+    font-size: 12px; /* Ukuran teks lebih kecil */
+  }
 }

@@ -17,8 +17,8 @@
     <!-- Right Section -->
     <div class="right-section">
       <div class="signup-form-container">
-        <h1>Welcome to <span class="highlight">UIIKantin</span></h1>
-        <h2>Sign up</h2>
+        <h1>Selamat Datang di <span class="highlight">UIIKantin</span></h1>
+        <h2>Daftar</h2>
         <form action="check.php" class="signup-form" method="POST">
           <label for="email">Masukan email UII</label>
           <input type="email" id="email" name="email" placeholder="Email" required>
@@ -29,16 +29,16 @@
               <input type="text" id="username" name="username" placeholder="Username" required>
             </div>
             <div>
-              <label for="kontak">Contact Number</label>
+              <label for="kontak">Nomor Telepon</label>
               <input type="tel" id="kontak" name="kontak" placeholder="Contact Number" required>
             </div>
           </div>
 
           <label for="password">Masukkan Password</label>
           <input type="password" id="password" name="password" placeholder="Password" required>
-          <button type="submit" class="signup-button">Sign up</button>
+          <button type="submit" class="signup-button">Daftar</button>
           <p class="already-account">
-            Have an Account? <a href="../LOGIN/login.php">Sign in</a>
+            Punya Akun? <a href="../LOGIN/login.php">Masuk</a>
           </p>
         </form>
         <?php if (isset($error)): ?>

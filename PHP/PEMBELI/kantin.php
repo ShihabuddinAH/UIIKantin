@@ -28,7 +28,7 @@ $result = $conn->query("SELECT * FROM kantin");
             <div class="search-box">
               <input type="text" placeholder="Search in site" class="search-input">
               <button class="search-button">
-                <img src="assets/search.png" alt="Search" class="search-icon">
+                <img src="../../ASSETS/search.png" alt="Search" class="search-icon">
               </button>
             </div>
           </nav>
@@ -57,7 +57,7 @@ $result = $conn->query("SELECT * FROM kantin");
       </div>
     </section>
   </main>
-  
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-container">

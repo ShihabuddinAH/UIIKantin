@@ -2,7 +2,7 @@
 session_start();
 include '../connect.php';
 
-$timeout_duration = 1 * 30;
+$timeout_duration = 1 * 60;
 
 if (isset($_SESSION['last_activity'])) {
     $inactive_duration = time() - $_SESSION['last_activity'];

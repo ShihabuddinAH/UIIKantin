@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+  url(../../ASSETS/LANDING-PAGE/background.png);
   margin: 20px;
   padding: 20px;
   font-family: 'Poppins', sans-serif;
@@ -15,7 +17,7 @@ body {
 .container {
   display: flex;
   max-width: 1200px;
-  width: 90%;
+  width: 100%;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -48,8 +50,14 @@ body {
 
 /* Right Section */
 .right-section {
+  max-width: 100%;
   width: 60%;
   padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Wrapper for Toggle */
@@ -92,6 +100,9 @@ body {
 
 /* Form Container */
 .form-container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 400px;
   background-color: #f0f0f0; /* Warna abu-abu */
   padding: 30px; /* Ruang di sekitar elemen */
   border-radius: 10px; /* Membuat sudut melengkung */
@@ -215,7 +226,8 @@ body {
   }
 
   .form-container {
-    padding: 20px; /* Mengurangi padding untuk menghemat ruang */
+    padding: 10px; /* Mengurangi padding untuk menghemat ruang */
+    max-width: 90%;
   }
 
   .google-button {
@@ -252,6 +264,7 @@ body {
 
   .form-container {
     padding: 15px; /* Padding lebih kecil untuk layar kecil */
+    max-width: 100%;
   }
 
   .google-button {
