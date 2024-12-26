@@ -2,7 +2,6 @@
 
 * {
   font-family: "Poppins", serif;
-  overflow: hidden;
 }
 
 body {
@@ -25,7 +24,7 @@ body {
 
 .sidebar h4 {
   margin-bottom: 20px;
-  color: #365e32;
+  color: #0F2043;
 }
 
 .sidebar ul {
@@ -51,13 +50,14 @@ body {
 }
 
 .sidebar a.logout:hover {
-  background-color: yellow;
+  background-color: #3361AC;
 }
 
 .sidebar a.active,
 .sidebar a:hover {
-  background-color: #81a263;
+  background-color: #679BF1;
 }
+
 .content {
   flex-grow: 1;
   padding: 20px;
@@ -101,7 +101,7 @@ body {
 }
 
 .card a button {
-  background-color: #fd9b63;
+  background-color: #E8AF30;
   color: white;
   border: none;
   padding: 10px;
@@ -132,7 +132,7 @@ body {
 }
 
 .buttons .tambahMenu {
-  background-color: #fd9b63;
+  background-color: #FFC40A;
   color: white;
   transition: transform 0.2s, box-shadow 0.2s;
 }

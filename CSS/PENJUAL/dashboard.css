@@ -2,7 +2,6 @@
 
 * {
   font-family: "Poppins", serif;
-  overflow: hidden;
 }
 
 body {
@@ -25,7 +24,7 @@ body {
 
 .sidebar h4 {
   margin-bottom: 20px;
-  color: #365e32;
+  color: #0F2043;
 }
 
 .sidebar ul {
@@ -45,16 +44,18 @@ body {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
+
 .sidebar a.logout {
   color: red;
 }
 
 .sidebar a.logout:hover {
-  background-color: yellow;
+  background-color: #0F2043;
 }
+
 .sidebar a.active,
 .sidebar a:hover {
-  background-color: #81a263;
+  background-color: #679BF1;
 }
 
 /* Main Content */

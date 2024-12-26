@@ -2,7 +2,6 @@
 
 * {
   font-family: "Poppins", serif;
-  overflow: hidden;
 }
 
 body {
@@ -152,13 +151,13 @@ main {
 }
 
 .sidebar a.logout:hover {
-  background-color: yellow;
+  background-color: #0F2043;
 }
 
 .main-content {
-  flex-grow: 1;
+  flex: 1;
   padding: 20px;
-  background-color: #e9ecef;
+  box-sizing: border-box;
 }
 
 .main-content h1 {
