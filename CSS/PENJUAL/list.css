@@ -26,7 +26,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #365e32;
+  background-color: #0F2043;
   color: white;
   padding: 1rem 0;
 }
@@ -121,7 +121,7 @@ main {
 
 .sidebar h4 {
   margin-bottom: 20px;
-  color: #365e32;
+  color: #162F65;
 }
 
 .sidebar ul {
@@ -144,7 +144,7 @@ main {
 
 .sidebar a.active,
 .sidebar a:hover {
-  background-color: #81a263;
+  background-color: #679BF1;
 }
 
 .sidebar a.logout {
@@ -183,10 +183,22 @@ td {
 }
 
 th {
-  background-color: #81a263;
+  background-color: #162F65;
   color: white;
 }
 
 tr:hover {
   background-color: #f1f1f1;
+}
+
+.footer {
+  background-color: #0F2043;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }

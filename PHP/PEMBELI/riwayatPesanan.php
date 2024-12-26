@@ -99,5 +99,11 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
     <main>
+          <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2024 UIIKantin. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
