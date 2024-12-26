@@ -41,8 +41,8 @@ $stmt->close();
             <ul>
                 <li><a href="dashboardPenjual.php" class="button">Dashboard</a></li>
                 <li><a class="active" href="#">Order List</a></li>
-                <li><a href="#">Customer</a></li>
-                <li><a href="#">Reviews</a></li>
+                <li><a href="../EROR/eror.html">Customer</a></li>
+                <li><a href="../EROR/eror.html">Reviews</a></li>
                 <li><a href="editmenu.php" class="button">Menu</a></li>
                 <li><a href="../LOGIN/logout.php" class="logout">Logout</a></li>
             </ul>

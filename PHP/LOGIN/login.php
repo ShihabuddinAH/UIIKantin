@@ -39,7 +39,7 @@ if (isset($_SESSION['username'])) {
 
         <!-- Login Form -->
         <form action="auth.php" id="login-form" method="POST">
-          <label for="username">Masukkan Username atau Email UII</label>
+          <label for="username">Masukkan Username</label>
           <input type="text" id="username" name="username" placeholder="Username" required>
 
           <label for="password">Masukkan Password</label>

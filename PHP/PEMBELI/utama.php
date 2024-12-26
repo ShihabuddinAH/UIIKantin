@@ -110,10 +110,10 @@ if (isset($_SESSION['username'])) {
     <div class="bottom-navbar-column">
       <h4>Links</h4>
       <ul class="bottom-navbar-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="kantin.html">Canteen</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../EROR/eror.html">Home</a></li>
+        <li><a href="../EROR/eror.html">Canteen</a></li>
+        <li><a href="../EROR/eror.html">About</a></li>
+        <li><a href="../EROR/eror.html">Contact</a></li>
       </ul>
     </div>
 
@@ -121,9 +121,9 @@ if (isset($_SESSION['username'])) {
     <div class="bottom-navbar-column">
       <h4>Help</h4>
       <ul class="bottom-navbar-links">
-        <li><a href="#">Payment Options</a></li>
-        <li><a href="#">Returns</a></li>
-        <li><a href="#">Privacy Policies</a></li>
+        <li><a href="../EROR/eror.html">Payment Options</a></li>
+        <li><a href="../EROR/eror.html">Returns</a></li>
+        <li><a href="../EROR/eror.html">Privacy Policies</a></li>
       </ul>
     </div>
 

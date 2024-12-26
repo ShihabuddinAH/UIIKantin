@@ -68,8 +68,8 @@ while ($row_menu = $result_menu->fetch_assoc()) {
         <ul>
             <li><a href="dashboardPenjual.php" class="button">Dashboard</a></li>
             <li><a href="list.php" class="button">Order List</a></li>
-            <li><a href="#">Customer</a></li>
-            <li><a href="#" class="button">Reviews</a></li>
+            <li><a href="../EROR/eror.html">Customer</a></li>
+            <li><a href="../EROR/eror.html" class="button">Reviews</a></li>
             <li><a class="active" href="#">Menu</a></li>
             <li><a href="../LOGIN/logout.php" class="logout">Logout</a></li>
         </ul>

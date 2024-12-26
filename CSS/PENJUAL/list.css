@@ -25,7 +25,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0F2043;
+  background-color: #0f2043;
   color: white;
   padding: 1rem 0;
 }
@@ -120,7 +120,7 @@ main {
 
 .sidebar h4 {
   margin-bottom: 20px;
-  color: #162F65;
+  color: #162f65;
 }
 
 .sidebar ul {
@@ -143,7 +143,7 @@ main {
 
 .sidebar a.active,
 .sidebar a:hover {
-  background-color: #679BF1;
+  background-color: #679bf1;
 }
 
 .sidebar a.logout {
@@ -151,7 +151,7 @@ main {
 }
 
 .sidebar a.logout:hover {
-  background-color: #0F2043;
+  background-color: #0f2043;
 }
 
 .main-content {
@@ -162,7 +162,7 @@ main {
 
 .main-content h1 {
   margin-bottom: 20px;
-  color: #365e32;
+  color: #162f65;
 }
 
 table {
@@ -182,7 +182,7 @@ td {
 }
 
 th {
-  background-color: #162F65;
+  background-color: #162f65;
   color: white;
 }
 
@@ -191,7 +191,7 @@ tr:hover {
 }
 
 .footer {
-  background-color: #0F2043;
+  background-color: #0f2043;
   color: white;
   padding: 1rem 0;
   text-align: center;

@@ -74,8 +74,8 @@ $conn->close();
             <ul>
                 <li><a class="active" href="#">Dashboard</a></li>
                 <li><a href="list.php" class="button">Order List</a></li>
-                <li><a href="#">Customer</a></li>
-                <li><a href="#" class="button">Reviews</a></li>
+                <li><a href="../EROR/eror.html">Customer</a></li>
+                <li><a href="../EROR/eror.html" class="button">Reviews</a></li>
                 <li><a href="editmenu.php" class="button">Menu</a></li>
                 <li><a href="../LOGIN/logout.php" class="logout">Logout</a></li>
             </ul>
